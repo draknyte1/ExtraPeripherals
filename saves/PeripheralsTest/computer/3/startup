@@ -1,5 +1,0 @@
-while true do
-  turtle.suckUp()
-  turtle.dropDown()
-  sleep(10)
-end
