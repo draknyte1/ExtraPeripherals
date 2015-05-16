@@ -1,0 +1,6 @@
+for i = 0, 64 do
+  rs.setOutput("bottom", true)
+  sleep(1)
+  rs.setOutput("bottom", false)
+  sleep(15)
+end

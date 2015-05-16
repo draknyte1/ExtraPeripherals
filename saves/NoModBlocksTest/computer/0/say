@@ -1,0 +1,5 @@
+targs = { ... }
+chat = peripheral.find("ChatBox")
+for num, text in pairs(targs) do
+  chat.say(text)
+end

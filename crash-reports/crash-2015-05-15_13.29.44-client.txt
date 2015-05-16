@@ -1,0 +1,115 @@
+---- Minecraft Crash Report ----
+// Why is it breaking :(
+
+Time: 15/05/15 13:29
+Description: Unexpected error
+
+java.lang.NoSuchMethodError: cofh.api.tileentity.ISecurable.canPlayerAccess(Lnet/minecraft/entity/player/EntityPlayer;)Z
+	at cofh.core.block.BlockCoFHBase.getPlayerRelativeBlockHardness(BlockCoFHBase.java:204)
+	at cofh.thermalexpansion.block.cache.BlockCache.getPlayerRelativeBlockHardness(BlockCache.java:184)
+	at net.minecraft.client.multiplayer.PlayerControllerMP.clickBlock(PlayerControllerMP.java:212)
+	at net.minecraft.client.Minecraft.func_147116_af(Minecraft.java:1491)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:2039)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1039)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:962)
+	at net.minecraft.client.main.Main.main(Main.java:164)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at cofh.core.block.BlockCoFHBase.getPlayerRelativeBlockHardness(BlockCoFHBase.java:204)
+	at cofh.thermalexpansion.block.cache.BlockCache.getPlayerRelativeBlockHardness(BlockCache.java:184)
+	at net.minecraft.client.multiplayer.PlayerControllerMP.clickBlock(PlayerControllerMP.java:212)
+	at net.minecraft.client.Minecraft.func_147116_af(Minecraft.java:1491)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityClientPlayerMP['EyeballcodeKilledPlantsguyYAYLOL'/194, l='MpServer', x=-65.53, y=5.62, z=1717.30]]
+	Chunk stats: MultiplayerChunkCache: 225, 225
+	Level seed: 0
+	Level generator: ID 01 - flat, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (-66,4,1709), Chunk: (at 14,0,13 in -5,106; contains blocks -80,0,1696 to -65,255,1711), Region: (-1,3; contains chunks -32,96 to -1,127, blocks -512,0,1536 to -1,255,2047)
+	Level time: 24527 game time, 5172 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 69 total; [EntityPig['Pig'/129, l='MpServer', x=-65.66, y=4.00, z=1658.78], EntitySheep['Sheep'/130, l='MpServer', x=-64.91, y=4.00, z=1649.13], EntitySheep['Sheep'/131, l='MpServer', x=-71.75, y=4.00, z=1651.38], EntityPig['Pig'/132, l='MpServer', x=-67.88, y=4.00, z=1669.31], EntitySheep['Sheep'/133, l='MpServer', x=-49.13, y=4.00, z=1652.06], EntitySheep['Sheep'/134, l='MpServer', x=-59.47, y=4.00, z=1657.06], EntitySheep['Sheep'/135, l='MpServer', x=-52.19, y=4.00, z=1657.53], EntitySheep['Sheep'/136, l='MpServer', x=-58.84, y=4.00, z=1662.38], EntitySheep['Sheep'/137, l='MpServer', x=-50.03, y=4.00, z=1658.06], EntityPig['Pig'/138, l='MpServer', x=-59.41, y=4.00, z=1659.34], EntitySheep['Sheep'/139, l='MpServer', x=-59.56, y=4.00, z=1668.84], EntityChicken['Chicken'/140, l='MpServer', x=-54.59, y=4.00, z=1676.56], EntityChicken['Chicken'/141, l='MpServer', x=-0.22, y=4.00, z=1723.91], EntityHorse['Donkey'/142, l='MpServer', x=-9.94, y=4.00, z=1726.13], EntityHorse['Donkey'/143, l='MpServer', x=-6.97, y=4.00, z=1720.84], EntityHorse['Donkey'/144, l='MpServer', x=-1.00, y=4.00, z=1732.50], EntityChicken['Chicken'/145, l='MpServer', x=-13.53, y=4.00, z=1729.56], EntityChicken['Chicken'/146, l='MpServer', x=13.50, y=4.00, z=1677.50], EntityChicken['Chicken'/147, l='MpServer', x=10.63, y=4.00, z=1679.47], EntitySheep['Sheep'/148, l='MpServer', x=4.97, y=4.00, z=1721.94], EntitySheep['Sheep'/149, l='MpServer', x=1.63, y=4.00, z=1719.22], EntitySheep['Sheep'/150, l='MpServer', x=9.41, y=4.00, z=1722.19], EntitySheep['Sheep'/151, l='MpServer', x=3.81, y=4.00, z=1733.78], EntityChicken['Chicken'/152, l='MpServer', x=7.28, y=4.00, z=1728.16], EntityChicken['Chicken'/153, l='MpServer', x=10.53, y=4.00, z=1730.47], EntityChicken['Chicken'/58, l='MpServer', x=-144.47, y=4.00, z=1649.47], EntityChicken['Chicken'/60, l='MpServer', x=-137.56, y=4.00, z=1767.59], EntitySheep['Sheep'/74, l='MpServer', x=-131.97, y=4.00, z=1769.91], EntityChicken['Chicken'/75, l='MpServer', x=-140.38, y=4.00, z=1789.44], EntityChicken['Chicken'/76, l='MpServer', x=-137.47, y=4.00, z=1786.63], EntityChicken['Chicken'/77, l='MpServer', x=-145.47, y=4.00, z=1786.56], EntitySheep['Sheep'/78, l='MpServer', x=-142.50, y=4.00, z=1777.50], EntitySheep['Sheep'/79, l='MpServer', x=-138.19, y=4.00, z=1777.69], EntityChicken['Chicken'/84, l='MpServer', x=-121.41, y=4.00, z=1696.56], EntityChicken['Chicken'/85, l='MpServer', x=-117.88, y=4.00, z=1723.41], EntityChicken['Chicken'/86, l='MpServer', x=-113.19, y=4.00, z=1720.66], EntityChicken['Chicken'/87, l='MpServer', x=-111.59, y=4.00, z=1720.56], EntitySheep['Sheep'/88, l='MpServer', x=-116.75, y=4.00, z=1724.06], EntityChicken['Chicken'/89, l='MpServer', x=-112.56, y=4.00, z=1723.22], EntitySheep['Sheep'/90, l='MpServer', x=-112.41, y=4.00, z=1724.19], EntitySheep['Sheep'/91, l='MpServer', x=-119.75, y=4.00, z=1717.63], EntitySheep['Sheep'/92, l='MpServer', x=-112.06, y=4.00, z=1715.94], EntityChicken['Chicken'/93, l='MpServer', x=-97.47, y=4.00, z=1683.53], EntityChicken['Chicken'/94, l='MpServer', x=-104.41, y=4.00, z=1693.56], EntityChicken['Chicken'/95, l='MpServer', x=-105.28, y=4.00, z=1699.94], EntityChicken['Chicken'/96, l='MpServer', x=-104.75, y=4.00, z=1702.06], EntitySheep['Sheep'/97, l='MpServer', x=-107.19, y=4.00, z=1700.88], EntitySheep['Sheep'/98, l='MpServer', x=-106.06, y=4.00, z=1708.94], EntityChicken['Chicken'/99, l='MpServer', x=-105.59, y=4.00, z=1698.47], EntitySheep['Sheep'/100, l='MpServer', x=-111.50, y=4.00, z=1726.78], EntitySheep['Sheep'/101, l='MpServer', x=-111.34, y=4.00, z=1713.25], EntitySheep['Sheep'/102, l='MpServer', x=-106.44, y=4.00, z=1721.63], EntitySheep['Sheep'/103, l='MpServer', x=-109.75, y=4.00, z=1741.72], EntitySheep['Sheep'/104, l='MpServer', x=-100.16, y=4.00, z=1745.13], EntitySheep['Sheep'/105, l='MpServer', x=-101.22, y=4.00, z=1741.53], EntitySheep['Sheep'/106, l='MpServer', x=-96.88, y=4.00, z=1735.91], EntitySheep['Sheep'/107, l='MpServer', x=-100.38, y=4.00, z=1735.19], EntityCow['Cow'/108, l='MpServer', x=-105.81, y=4.00, z=1752.13], EntityCow['Cow'/109, l='MpServer', x=-104.16, y=4.00, z=1741.19], EntitySheep['Sheep'/110, l='MpServer', x=-96.25, y=4.00, z=1748.38], EntityCow['Cow'/116, l='MpServer', x=-100.97, y=4.00, z=1646.91], EntityCow['Cow'/118, l='MpServer', x=-90.94, y=4.00, z=1642.94], EntityClientPlayerMP['EyeballcodeKilledPlantsguyYAYLOL'/194, l='MpServer', x=-65.53, y=5.62, z=1717.30], EntitySheep['Sheep'/122, l='MpServer', x=-87.88, y=4.00, z=1700.88], EntitySheep['Sheep'/123, l='MpServer', x=-93.50, y=4.00, z=1741.50], EntitySheep['Sheep'/124, l='MpServer', x=-93.19, y=4.00, z=1748.19], EntitySheep['Sheep'/125, l='MpServer', x=-85.19, y=4.00, z=1753.63], EntityCow['Cow'/126, l='MpServer', x=-95.81, y=4.00, z=1750.16], EntityCow['Cow'/127, l='MpServer', x=-89.22, y=4.00, z=1747.31]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:415)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2566)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:991)
+	at net.minecraft.client.main.Main.main(Main.java:164)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Linux (amd64) version 3.13.0-52-generic
+	Java Version: 1.8.0_45, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 174184960 bytes (166 MB) / 434634752 bytes (414 MB) up to 932184064 bytes (889 MB)
+	JVM Flags: 1 total; -Xmx1000M
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP v9.05 FML v7.10.140.1401 Minecraft Forge 10.13.3.1401 16 mods loaded, 16 mods active
+	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	FML{7.10.140.1401} [Forge Mod Loader] (forgeSrc-1.7.10-10.13.3.1401-1710ls.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Forge{10.13.3.1401} [Minecraft Forge] (forgeSrc-1.7.10-10.13.3.1401-1710ls.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	appliedenergistics2-core{rv2-stable-1} [AppliedEnergistics2 Core] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	CodeChickenCore{1.0.6.43} [CodeChicken Core] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	NotEnoughItems{1.0.4.107} [Not Enough Items] (NotEnoughItems-1.7.10-1.0.4.107-universal.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	<CoFH ASM>{000} [CoFH ASM] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	appliedenergistics2{rv2-stable-1} [Applied Energistics 2] (appliedenergistics2-rv2-stable-1-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ComputerCraft{1.73} [ComputerCraft] (ComputerCraft1.73.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	IC2{2.2.719-experimental} [IndustrialCraft 2] (industrialcraft-2-2.2.719-experimental-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	CoFHCore{1.7.10R3.0.2} [CoFH Core] (CoFHCore-[1.7.10]3.0.2-262.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Forestry{3.5.6.15} [Forestry for Minecraft] (forestry_1.7.10-3.5.6.15-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ThermalFoundation{1.7.10R1.0.0} [Thermal Foundation] (ThermalFoundation-[1.7.10]1.0.0-81.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ThermalExpansion{1.7.10R4.0.0} [Thermal Expansion] (ThermalExpansion-[1.7.10]4.0.0-176-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Waila{1.5.10} [Waila] (Waila-1.5.10_1.7.10.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ExtraPeripherals{1.0} [Extra Peripherals] (bin) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	GL info: ' Vendor: 'Intel Open Source Technology Center' Version: '3.0 Mesa 10.1.3' Renderer: 'Mesa DRI Intel(R) Bay Trail '
+	AE2 Version: stable rv2-stable-1 for Forge 10.13.2.1291
+	CoFHCore: -[1.7.10]3.0.2-262
+	ThermalFoundation: -[1.7.10]1.0.0-81
+	ThermalExpansion: -[1.7.10]4.0.0-176
+	AE2 Integration: IC2:ON, RotaryCraft:OFF, RC:OFF, BC:OFF, RF:ON, RFItem:ON, MFR:OFF, DSU:ON, FZ:OFF, FMP:OFF, RB:OFF, CLApi:OFF, Waila:ON, InvTweaks:OFF, NEI:ON, CraftGuide:OFF, Mekanism:OFF, ImmibisMicroblocks:OFF, BetterStorage:OFF
+	Launched Version: 1.7.10
+	LWJGL: 2.9.1
+	OpenGL: Mesa DRI Intel(R) Bay Trail  GL version 3.0 Mesa 10.1.3, Intel Open Source Technology Center
+	GL Caps: Using GL 1.3 multitexturing.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Anisotropic filtering is supported and maximum anisotropy is 16.
+Shaders are available because OpenGL 2.1 is supported.
+
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: []
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	Vec3 Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	Anisotropic Filtering: Off (1)

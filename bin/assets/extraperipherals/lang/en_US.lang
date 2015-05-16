@@ -1,0 +1,17 @@
+#Creative tab
+itemGroup.extraperipherals=Extra Peripherals
+
+#Blocks
+chatBox.name=Chat Box
+
+#Items
+item.mouse.name=Mouse
+
+#Turtle adjectives
+extraperipherals.turtleUpgrade.clicky=Clicky
+
+#Chat
+extraperipherals.chat.modeNone=No mode
+extraperipherals.chat.modeRC=Right Click
+extraperipherals.chat.changemode=Current Mode: %s
+extraperipherals.chat.whisperPrefix=%s whispers to you: %s

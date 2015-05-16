@@ -1,0 +1,22 @@
+while true do
+  turtle.turnRight()
+  turtle.turnRight()
+  turtle.select(1)
+  for i = 1, 12, 1 do
+    turtle.forward()
+    turtle.suckDown()
+    sleep(.5)
+  end
+  turtle.turnRight()
+  turtle.turnRight()
+  for i = 1, 12, 1 do
+    turtle.forward()
+    turtle.suckDown()
+    sleep(.5)
+  end
+  for i = 1, 16, 1 do
+    turtle.select(i)
+    turtle.dropDown()
+  end
+  turtle.select(1)
+end

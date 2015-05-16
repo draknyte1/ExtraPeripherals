@@ -1,0 +1,7 @@
+targs = { ... }
+
+cb = peripheral.find("ChatBox")
+--Really key, value where key=num and value=targs[num]
+for num, text in pairs(targs) do
+  cb.say(text)
+end

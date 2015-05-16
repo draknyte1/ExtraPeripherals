@@ -1,0 +1,31 @@
+local targs = { ... }
+
+local side
+
+local argNum = 1
+
+if targs == {...} then
+  print("You must specify which side!")
+  return
+end
+
+for k, v in  pairs(targs) do
+  if argNum == 1 then
+    -- print("Args: " .. v)
+    side = v
+  end
+  argNum = 2
+end
+
+local peripheralToScan = peripheral.wrap(side)
+
+if peripheralToScan == nil then
+  print("Invalid side / invalid block!")
+  return
+end
+
+local mNum = 1
+for k, v in pairs(peripheralToScan) do
+  print(mNum .. ": " .. k)
+  mNum = mNum + 1
+end

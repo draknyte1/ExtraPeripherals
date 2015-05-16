@@ -1,0 +1,2 @@
+clicker = peripheral.wrap("left")
+clicker.rightClick()
