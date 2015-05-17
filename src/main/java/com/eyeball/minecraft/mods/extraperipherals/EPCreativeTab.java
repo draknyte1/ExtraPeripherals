@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
+import com.eyeball.minecraft.mods.extraperipherals.block.BlockEPBase;
 import com.eyeball.minecraft.mods.extraperipherals.block.BlockRegistry;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -18,6 +19,11 @@ import dan200.computercraft.api.turtle.ITurtleUpgrade;
 public class EPCreativeTab {
 
 	public static final List<ITurtleUpgrade> upgrades = new LinkedList<ITurtleUpgrade>();
+	public static final List<BlockEPBase> multiValueBlocks = new LinkedList<BlockEPBase>();
+
+	static {
+		multiValueBlocks.add(BlockRegistry.blocks.get("rfCharger"));
+	}
 
 	public static final CreativeTabs CREATIVETAB = new CreativeTabs(
 			Reference.MODID.toLowerCase()) {
@@ -55,6 +61,7 @@ public class EPCreativeTab {
 						(short) upgrade.getUpgradeID());
 				list.add(upg1);
 			}
+
 		};
 	};
 }

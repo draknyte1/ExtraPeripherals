@@ -87,9 +87,9 @@ public interface IEnergyTransfer {
     public int getTier();
 
     /**
-     * The device's transfer rate in EU/t.
+     * The device's transfer outputRate in EU/t.
      *
-     * @return the transfer rate
+     * @return the transfer outputRate
      */
     public int getTransferLimit();
 

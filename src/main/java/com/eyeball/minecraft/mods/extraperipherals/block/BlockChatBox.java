@@ -7,7 +7,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import com.eyeball.minecraft.mods.extraperipherals.EPCreativeTab;
 import com.eyeball.minecraft.mods.extraperipherals.tile.TileChatBox;
 
 import dan200.computercraft.api.peripheral.IPeripheral;
@@ -20,7 +19,6 @@ public class BlockChatBox extends BlockEPBase implements IPeripheralProvider,
 
 	public BlockChatBox() {
 		super(Material.iron);
-		setCreativeTab(EPCreativeTab.CREATIVETAB);
 	}
 
 	@Override

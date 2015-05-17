@@ -29,7 +29,6 @@ minecraft {
 
 dependencies {
 
-  compile "com.mod-buildcraft:buildcraft:6.4.15:dev"
 }
 
 

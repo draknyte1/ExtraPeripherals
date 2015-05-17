@@ -37,7 +37,7 @@ public interface IAlleleButterflySpecies extends IAlleleSpecies {
 	boolean strictSpawnMatch();
 	
 	/**
-	 * @return Float between 0 and 1 representing the rarity of the species, will affect spawn rate.
+	 * @return Float between 0 and 1 representing the rarity of the species, will affect spawn outputRate.
 	 */
 	float getRarity();
 	

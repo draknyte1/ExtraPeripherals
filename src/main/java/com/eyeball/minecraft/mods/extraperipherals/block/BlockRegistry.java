@@ -2,7 +2,7 @@ package com.eyeball.minecraft.mods.extraperipherals.block;
 
 import java.util.HashMap;
 
-import com.eyeball.minecraft.mods.extraperipherals.ExtraPeripheralsMod;
+import com.eyeball.minecraft.mods.extraperipherals.EPCreativeTab;
 
 public class BlockRegistry {
 
@@ -12,9 +12,13 @@ public class BlockRegistry {
 	static {
 		blocks.put("chatBox", new BlockChatBox());
 		blocks.put("playerDetector", new BlockPlayerDetector());
-		blocks.put("universalCharger", new BlockUniversalCharger());
+		blocks.put("rfChargerLeadstone", new BlockRFChargerT1());
+		blocks.put("rfChargerHardened", new BlockRFChargerT2());
+		blocks.put("rfChargerRedstone", new BlockRFChargerT3());
+		blocks.put("rfChargerResonant", new BlockRFChargerT4());
+		blocks.put("euCharger", new BlockEUCharger());
 		for (BlockEPBase block : blocks.values()) {
-			ExtraPeripheralsMod.LOGGER.info(block.getLocalizedName());
+			block.setCreativeTab(EPCreativeTab.CREATIVETAB);
 		}
 	}
 

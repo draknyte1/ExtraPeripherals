@@ -3,6 +3,12 @@ itemGroup.extraperipherals=Extra Peripherals
 
 #Blocks
 chatBox.name=Chat Box
+playerDetector.name=Player Detector
+euCharger.name=EU Charger
+rfChargerL.name=Leadstone RF turtle charger
+rfChargerH.name=Hardened RF turtle charger
+rfChargerRS.name=Redstone RF turtle charger
+rfChargerE.name=Resonant RF turtle charger
 
 #Items
 item.mouse.name=Mouse
@@ -11,7 +17,6 @@ item.mouse.name=Mouse
 extraperipherals.turtleUpgrade.clicky=Clicky
 
 #Chat
-extraperipherals.chat.modeNone=No mode
-extraperipherals.chat.modeRC=Right Click
-extraperipherals.chat.changemode=Current Mode: %s
+extraperipherals.chat.mouse.modeNone=Current Mode: No mode
+extraperipherals.chat.mouse.modeRC=Current Mode: Right Click
 extraperipherals.chat.whisperPrefix=%s whispers to you: %s

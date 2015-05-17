@@ -18,6 +18,7 @@ public class ClickerItem extends ItemEPBase {
 	public ClickerItem() {
 		setCreativeTab(EPCreativeTab.CREATIVETAB);
 		setUnlocalizedName("mouse");
+		setMaxStackSize(1);
 		icons = new IIcon[2];
 	}
 
@@ -29,18 +30,14 @@ public class ClickerItem extends ItemEPBase {
 		if (stack.getItemDamage() == 0) {
 			stack.setItemDamage(1);
 			String message = StatCollector
-					.translateToLocal("extraperipherals.chat.changemode")
-					+ StatCollector
-							.translateToLocal("extraperipherals.chat.modeRC");
+					.translateToLocal("extraperipherals.chat.mouse.modeRC");
 			if (world.isRemote) {
 				player.addChatComponentMessage(new ChatComponentText(message));
 			}
 		} else {
 			stack.setItemDamage(0);
 			String message = StatCollector
-					.translateToLocal("extraperipherals.chat.changemode")
-					+ StatCollector
-							.translateToLocal("extraperipherals.chat.modeRC");
+					.translateToLocal("extraperipherals.chat.mouse.modeNone");
 			if (world.isRemote) {
 				player.addChatComponentMessage(new ChatComponentText(message));
 			}
@@ -51,6 +48,11 @@ public class ClickerItem extends ItemEPBase {
 	@Override
 	public boolean isFull3D() {
 		return true;
+	}
+
+	@Override
+	public boolean showDurabilityBar(ItemStack stack) {
+		return false;
 	}
 
 	@Override

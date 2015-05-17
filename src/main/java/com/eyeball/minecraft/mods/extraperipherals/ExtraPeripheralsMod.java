@@ -12,6 +12,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import org.apache.commons.lang3.time.StopWatch;
@@ -19,9 +21,10 @@ import org.apache.logging.log4j.Logger;
 
 import com.eyeball.minecraft.mods.extraperipherals.api.IIconNeeded;
 import com.eyeball.minecraft.mods.extraperipherals.block.BlockChatBox;
+import com.eyeball.minecraft.mods.extraperipherals.block.BlockPlayerDetector;
 import com.eyeball.minecraft.mods.extraperipherals.block.BlockRegistry;
 import com.eyeball.minecraft.mods.extraperipherals.integration.ComputerCraftIntegrationUtil;
-import com.eyeball.minecraft.mods.extraperipherals.integration.forestry.backpacks.ComputerEngineerBackpackT1;
+import com.eyeball.minecraft.mods.extraperipherals.integration.forestry.backpacks.ComputerEngineerBackpack;
 import com.eyeball.minecraft.mods.extraperipherals.integration.waila.WailaCompat;
 import com.eyeball.minecraft.mods.extraperipherals.item.ItemRegistry;
 import com.eyeball.minecraft.mods.extraperipherals.network.packet.ChatMessagePacket;
@@ -42,6 +45,7 @@ import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import dan200.computercraft.api.turtle.ITurtleUpgrade;
+import forestry.api.recipes.RecipeManagers;
 import forestry.api.storage.BackpackManager;
 import forestry.api.storage.EnumBackpackType;
 
@@ -176,6 +180,8 @@ public class ExtraPeripheralsMod {
 		LOGGER.info("Now adding ExtraPeripheral's blocks as Peripherals...");
 		ComputerCraftIntegrationUtil
 				.registerPeripheralHandler(new BlockChatBox());
+		ComputerCraftIntegrationUtil
+				.registerPeripheralHandler(new BlockPlayerDetector());
 		if (Loader.isModLoaded("IC2")) {
 			LOGGER.info("IC2 is loaded! Attempting IC2 Integration...");
 			ComputerCraftIntegrationUtil
@@ -189,30 +195,44 @@ public class ExtraPeripheralsMod {
 
 		if (Loader.isModLoaded("Forestry")) {
 			LOGGER.info("Forestry is loaded! Attempting Forestry Integration...");
-			ComputerEngineerBackpackT1 computerEngineerBackpackT1 = new ComputerEngineerBackpackT1();
+			ComputerEngineerBackpack computerEngineerBackpack = new ComputerEngineerBackpack();
 			Item backpackT1 = BackpackManager.backpackInterface.addBackpack(
-					computerEngineerBackpackT1, EnumBackpackType.T1);
+					computerEngineerBackpack, EnumBackpackType.T1);
+			Item backpackT2 = BackpackManager.backpackInterface.addBackpack(
+					computerEngineerBackpack, EnumBackpackType.T2);
+			backpackT2.setCreativeTab(EPCreativeTab.CREATIVETAB);
 			backpackT1.setCreativeTab(EPCreativeTab.CREATIVETAB);
 			GameRegistry.registerItem(backpackT1, "ccbackpack1");
+			GameRegistry.registerItem(backpackT2, "ccbackpack2");
 			GameRegistry.addRecipe(new ShapedOreRecipe(
 					new ItemStack(backpackT1), "sws", "dcd", "sws", 's',
 					Items.string, 'w', Blocks.wool, 'd',
 					ComputerCraftIntegrationUtil.getCCItem("disk"), 'c',
 					Blocks.chest));
+			ItemStack silkStack = new ItemStack(GameRegistry.findItem(
+					"Forestry", "craftingMaterial"), 1, 3);
+			RecipeManagers.carpenterManager.addRecipe(6000, new FluidStack(
+					FluidRegistry.WATER, 1000), null,
+					new ItemStack(backpackT2), "SDS", "SBS", "SSS", 'S',
+					silkStack, 'D', "gemDiamond", 'B',
+					new ItemStack(backpackT1));
 		}
 
 		LOGGER.info("Peripherals done! Now doing turtle upgrades!");
 		ComputerCraftIntegrationUtil
 				.registerTurtleUpgrade(new RightClickTurtleUpgrade());
-		LOGGER.info("Sucessfu]ly registered "  + EPCreativeTab.upgrades.size() + " turtle upgrades.");
+		LOGGER.info("Sucessfully registered " + EPCreativeTab.upgrades.size()
+				+ " turtle upgrades.");
 		LOGGER.info("Done!");
 		LOGGER.info("Now loading Textures...");
 		for (ITurtleUpgrade upgrade : EPCreativeTab.upgrades) {
 			if (upgrade instanceof IIconNeeded) {
 				IIconNeeded icon = (IIconNeeded) upgrade;
-				icon.registerIcons(Minecraft.getMinecraft().getTextureMapBlocks());
+				icon.registerIcons(Minecraft.getMinecraft()
+						.getTextureMapBlocks());
 			}
 		}
+
 		stopWatch.stop();
 		LOGGER.info("(Initialization ended ->" + stopWatch.getTime() + "ms )");
 	}
@@ -249,7 +269,7 @@ public class ExtraPeripheralsMod {
 			}
 		}
 
-   		LOGGER.info("Attempting Waila Integration (com.eyeball.minecraft.mods.extraperipherals.integration.WailaCompat)");
+		LOGGER.info("Attempting Waila Integration (com.eyeball.minecraft.mods.extraperipherals.integration.WailaCompat)");
 		if (FMLInterModComms.sendMessage("Waila", "register",
 				WailaCompat.class.getName() + ".register")) {
 			LOGGER.info("Sucess!");

@@ -131,9 +131,9 @@ public interface IReactor {
 	public void explode();
 
 	/**
-	 * Get the reactor's tick rate (game ticks per reactor tick).
+	 * Get the reactor's tick outputRate (game ticks per reactor tick).
 	 * 
-	 * @return Tick rate
+	 * @return Tick outputRate
 	 */
 	public int getTickRate();
 
