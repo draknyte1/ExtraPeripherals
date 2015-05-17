@@ -211,7 +211,7 @@ public class ExtraPeripheralsMod {
 					Blocks.chest));
 			ItemStack silkStack = new ItemStack(GameRegistry.findItem(
 					"Forestry", "craftingMaterial"), 1, 3);
-			RecipeManagers.carpenterManager.addRecipe(6000, new FluidStack(
+			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(
 					FluidRegistry.WATER, 1000), null,
 					new ItemStack(backpackT2), "SDS", "SBS", "SSS", 'S',
 					silkStack, 'D', "gemDiamond", 'B',
