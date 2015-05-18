@@ -22,6 +22,12 @@ public class BlockRegistry {
 		for (BlockEPBase block : includedBlocks.values()) {
 			block.setCreativeTab(EPCreativeTab.CREATIVETAB);
 		}
+		for (BlockEPBase block : ic2Blocks.values()) {
+			block.setCreativeTab(EPCreativeTab.CREATIVETAB);
+		}
+		for (BlockEPBase block : te4Blocks.values()) {
+			block.setCreativeTab(EPCreativeTab.CREATIVETAB);
+		}
 	}
 
 }
