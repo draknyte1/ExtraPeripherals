@@ -10,7 +10,7 @@ package mods.railcraft.api.carts;
 import net.minecraft.util.IIcon;
 
 /**
- * Used by the renderer to renders blocks in carts.
+ * Used by the renderer to renders IncludedBlocks in carts.
  *
  * @author CovertJaguar <http://www.railcraft.info>
  */

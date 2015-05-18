@@ -61,7 +61,7 @@ public class ThaumcraftApi {
 	//Miscellaneous
 	/**
 	 * Portable Hole Block-id Blacklist. 
-	 * Simply add the block-id's of blocks you don't want the portable hole to go through.
+	 * Simply add the block-id's of IncludedBlocks you don't want the portable hole to go through.
 	 */
 	public static ArrayList<Block> portableHoleBlackList = new ArrayList<Block>();
 	
@@ -501,7 +501,7 @@ public class ThaumcraftApi {
 	 * There are two 'types' of crops you can add. Standard crops and clickable crops.
 	 * 
 	 * Standard crops work like normal vanilla crops - they grow until a certain metadata 
-	 * value is reached and you harvest them by destroying the block and collecting the blocks.
+	 * value is reached and you harvest them by destroying the block and collecting the IncludedBlocks.
 	 * You need to create and ItemStack that tells the golem what block id and metadata represents
 	 * the crop when fully grown. Sending a metadata of [OreDictionary.WILDCARD_VALUE] will mean the metadata won't get 
 	 * checked.
@@ -510,7 +510,7 @@ public class ThaumcraftApi {
 	 *  
 	 * Clickable crops are crops that you right click to gather their bounty instead of destroying them.
 	 * As for standard crops, you need to create and ItemStack that tells the golem what block id 
-	 * and metadata represents the crop when fully grown. The golem will trigger the blocks onBlockActivated method. 
+	 * and metadata represents the crop when fully grown. The golem will trigger the IncludedBlocks onBlockActivated method. 
 	 * Sending a metadata of [OreDictionary.WILDCARD_VALUE] will mean the metadata won't get checked.
 	 * Example (this will technically do nothing since clicking wheat does nothing, but you get the idea): 
 	 * FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(Block.crops,1,7));

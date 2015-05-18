@@ -28,7 +28,7 @@ public abstract class TileVisNode extends TileThaumcraft {
 	}
 	
 	/**
-	 * @return the number of blocks away this node will check for parent nodes to connect to. 
+	 * @return the number of IncludedBlocks away this node will check for parent nodes to connect to. 
 	 */
 	public abstract int getRange();
 	

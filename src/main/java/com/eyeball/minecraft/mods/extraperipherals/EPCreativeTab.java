@@ -25,7 +25,8 @@ public class EPCreativeTab {
 		@SideOnly(Side.CLIENT)
 		@Override
 		public Item getTabIconItem() {
-			return Item.getItemFromBlock(BlockRegistry.blocks.get("chatBox"));
+			return Item.getItemFromBlock(BlockRegistry.includedBlocks
+					.get("chatBox"));
 		}
 
 		@SuppressWarnings({ "unchecked", "rawtypes" })

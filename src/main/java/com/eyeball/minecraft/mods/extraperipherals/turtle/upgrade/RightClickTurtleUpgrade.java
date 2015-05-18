@@ -6,6 +6,7 @@ import net.minecraft.util.IIcon;
 
 import com.eyeball.minecraft.mods.extraperipherals.ExtraPeripheralsMod;
 import com.eyeball.minecraft.mods.extraperipherals.Reference;
+import com.eyeball.minecraft.mods.extraperipherals.TurtleID;
 import com.eyeball.minecraft.mods.extraperipherals.api.IIconNeeded;
 import com.eyeball.minecraft.mods.extraperipherals.integration.thermalexpansion.peripheral.machine.RightClickerPeripheral;
 import com.eyeball.minecraft.mods.extraperipherals.item.ItemRegistry;
@@ -24,7 +25,7 @@ public class RightClickTurtleUpgrade implements ITurtleUpgrade, IIconNeeded {
 
 	@Override
 	public int getUpgradeID() {
-		return 100;
+		return TurtleID.RIGHTCLICK;
 	}
 
 	@Override

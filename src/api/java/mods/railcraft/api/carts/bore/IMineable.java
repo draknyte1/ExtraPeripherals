@@ -19,7 +19,7 @@ import net.minecraft.world.World;
  * If the block is found to implement this class, any setting in the configuration
  * is ignored for that block.
  *
- * Generally, the reason blocks are not minable by default is to prevent you
+ * Generally, the reason IncludedBlocks are not minable by default is to prevent you
  * from intentionally or accidentally boring through your base.
  *
  * @author CovertJaguar <http://www.railcraft.info>

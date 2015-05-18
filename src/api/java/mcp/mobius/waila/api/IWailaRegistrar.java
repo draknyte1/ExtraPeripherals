@@ -8,7 +8,7 @@ package mcp.mobius.waila.api;
  * If not specified otherwise, all the registration methods taking a class can take classes as well as interfaces.
  * Waila will do a lookup using instanceof on the registered classes, meaning that if all your targets inherit one interface, you only need
  * to specify it to cover the whole hierarchy.<br>
- * For the registration of blocks, both Blocks and TileEntities are accepted.<p>
+ * For the registration of IncludedBlocks, both Blocks and TileEntities are accepted.<p>
  * For the configuration keys :<br>
  * modname refers to a String used for display in Waila's config panel.<br>
  * keyname refers to an unique key used internally for config query (cf {@link IWailaConfigHandler}). Those keys are shared across Waila, keep them unique !<br>

@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 /**
- * IGermling describes a crop or other harvestable object and can be used to inspect item stacks and blocks for matches.
+ * IGermling describes a crop or other harvestable object and can be used to inspect item stacks and IncludedBlocks for matches.
  */
 public interface IFarmable {
 

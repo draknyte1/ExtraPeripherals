@@ -20,7 +20,7 @@ import forestry.api.genetics.ISpeciesRoot;
 public enum EnumTreeChromosome implements IChromosomeType {
 
 	/**
-	 * Determines the following: - WorldGen, including the used wood blocks - {@link IFruitFamily}s supported. Limits which {@link IFruitProvider}
+	 * Determines the following: - WorldGen, including the used wood IncludedBlocks - {@link IFruitFamily}s supported. Limits which {@link IFruitProvider}
 	 * will actually yield fruit with this species. - Native {@link EnumPlantType} for this tree. Combines with the PLANT chromosome.
 	 */
 	SPECIES(IAlleleTreeSpecies.class),

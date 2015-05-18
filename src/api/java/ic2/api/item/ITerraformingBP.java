@@ -17,7 +17,7 @@ public interface ITerraformingBP {
 	 * Get the maximum range of the blueprint.
 	 * Should be a divisor of 5.
 	 * 
-	 * @return Maximum range in blocks
+	 * @return Maximum range in IncludedBlocks
 	 */
 	public abstract int getRange();
 	

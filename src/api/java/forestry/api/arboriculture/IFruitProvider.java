@@ -51,7 +51,7 @@ public interface IFruitProvider {
 	short getIconIndex(ITreeGenome genome, IBlockAccess world, int x, int y, int z, int ripeningTime, boolean fancy);
 
 	/**
-	 * @return true if this fruit provider requires fruit blocks to spawn, false otherwise.
+	 * @return true if this fruit provider requires fruit IncludedBlocks to spawn, false otherwise.
 	 */
 	boolean requiresFruitBlocks();
 

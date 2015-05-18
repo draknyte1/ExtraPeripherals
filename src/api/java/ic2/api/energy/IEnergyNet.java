@@ -16,7 +16,7 @@ public interface IEnergyNet {
 	 * This is not the same as World.getTileEntity(), it's possible to register delegate tile
 	 * entities with the energy net which are different from what's actually in the world. Those
 	 * delegates allow to use separate TileEntity objects just for the EnergyNet interfaces,
-	 * simplifying cross-mod dependencies and multi-blocks.
+	 * simplifying cross-mod dependencies and multi-IncludedBlocks.
 	 * 
 	 * @param world World containing the tile entity
 	 * @param x x-coordinate

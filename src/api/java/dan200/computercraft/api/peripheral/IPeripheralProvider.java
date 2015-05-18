@@ -9,7 +9,7 @@ package dan200.computercraft.api.peripheral;
 import net.minecraft.world.World;
 
 /**
- * This interface is used to create peripheral implementations for blocks
+ * This interface is used to create peripheral implementations for IncludedBlocks
  * @see dan200.computercraft.api.ComputerCraftAPI#registerPeripheralProvider(IPeripheralProvider)
  */
 public interface IPeripheralProvider

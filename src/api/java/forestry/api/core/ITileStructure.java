@@ -53,7 +53,7 @@ public interface ITileStructure {
 	ISidedInventory getStructureInventory();
 
 	/**
-	 * Only called on Forestry's own blocks.
+	 * Only called on Forestry's own IncludedBlocks.
 	 */
 	void makeMaster();
 

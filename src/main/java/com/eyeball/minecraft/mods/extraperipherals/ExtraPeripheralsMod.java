@@ -25,11 +25,18 @@ import com.eyeball.minecraft.mods.extraperipherals.block.BlockPlayerDetector;
 import com.eyeball.minecraft.mods.extraperipherals.block.BlockRegistry;
 import com.eyeball.minecraft.mods.extraperipherals.integration.ComputerCraftIntegrationUtil;
 import com.eyeball.minecraft.mods.extraperipherals.integration.forestry.backpacks.ComputerEngineerBackpack;
+import com.eyeball.minecraft.mods.extraperipherals.integration.ic2.energy.TileEntityElectricMachine;
 import com.eyeball.minecraft.mods.extraperipherals.integration.waila.WailaCompat;
 import com.eyeball.minecraft.mods.extraperipherals.item.ItemRegistry;
 import com.eyeball.minecraft.mods.extraperipherals.network.packet.ChatMessagePacket;
 import com.eyeball.minecraft.mods.extraperipherals.network.packet.ChatMessagePacket.ChatMessagePacketHandler;
+import com.eyeball.minecraft.mods.extraperipherals.tile.TileEUCharger;
+import com.eyeball.minecraft.mods.extraperipherals.tile.rfchargers.TileRFChargerT1;
+import com.eyeball.minecraft.mods.extraperipherals.tile.rfchargers.TileRFChargerT2;
+import com.eyeball.minecraft.mods.extraperipherals.tile.rfchargers.TileRFChargerT3;
+import com.eyeball.minecraft.mods.extraperipherals.tile.rfchargers.TileRFChargerT4;
 import com.eyeball.minecraft.mods.extraperipherals.turtle.upgrade.RightClickTurtleUpgrade;
+import com.eyeball.minecraft.mods.extraperipherals.turtle.upgrade.WrenchTurtleUpgrade;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
@@ -146,8 +153,9 @@ public class ExtraPeripheralsMod {
 		stopWatch.start();
 
 		LOGGER.info("Loading ExtraPeripherals Blocks...");
-		for (String key : BlockRegistry.blocks.keySet()) {
-			GameRegistry.registerBlock(BlockRegistry.blocks.get(key), key);
+		for (String blockName : BlockRegistry.includedBlocks.keySet()) {
+			GameRegistry.registerBlock(
+					BlockRegistry.includedBlocks.get(blockName), blockName);
 		}
 		LOGGER.info("Done!");
 		LOGGER.info("Now loading ExtraPeripherals Items...");
@@ -162,7 +170,7 @@ public class ExtraPeripheralsMod {
 
 		LOGGER.info("Done!");
 		LOGGER.info("Now adding TileEntities...");
-		for (String key : BlockRegistry.blocks.keySet()) {
+		for (String key : BlockRegistry.includedBlocks.keySet()) {
 			try {
 				String className = key.substring(0, 1).toUpperCase()
 						+ key.substring(1);
@@ -176,8 +184,9 @@ public class ExtraPeripheralsMod {
 				e.printStackTrace();
 			}
 		}
+
 		LOGGER.info("Done!");
-		LOGGER.info("Now adding ExtraPeripheral's blocks as Peripherals...");
+		LOGGER.info("Now adding ExtraPeripheral's IncludedBlocks as Peripherals...");
 		ComputerCraftIntegrationUtil
 				.registerPeripheralHandler(new BlockChatBox());
 		ComputerCraftIntegrationUtil
@@ -186,11 +195,34 @@ public class ExtraPeripheralsMod {
 			LOGGER.info("IC2 is loaded! Attempting IC2 Integration...");
 			ComputerCraftIntegrationUtil
 					.registerPeripheralHandler(Reference.PeripheralHandlers.IC2POWERHANDLER);
+			LOGGER.info("Registering EU Charger! Class: "
+					+ TileEUCharger.class.getName());
+			GameRegistry.registerTileEntity(TileEUCharger.class, "euCharger");
+			LOGGER.info("Registering MachineBlock! Class"
+					+ TileEntityElectricMachine.class.getName());
+			GameRegistry.registerTileEntity(TileEntityElectricMachine.class,
+					"euMachineBase");
+			for (String blockName : BlockRegistry.ic2Blocks.keySet()) {
+				GameRegistry.registerBlock(
+						BlockRegistry.ic2Blocks.get(blockName), blockName);
+			}
 		}
 		if (Loader.isModLoaded("ThermalExpansion")) {
 			LOGGER.info("ThermalExpansion is loaded! Attempting TE4 Integration...");
 			ComputerCraftIntegrationUtil
 					.registerPeripheralHandler(Reference.PeripheralHandlers.TE4POWERHANDLER);
+			GameRegistry.registerTileEntity(TileRFChargerT1.class,
+					"rfChargerT1");
+			GameRegistry.registerTileEntity(TileRFChargerT2.class,
+					"rfChargerT2");
+			GameRegistry.registerTileEntity(TileRFChargerT3.class,
+					"rfChargerT3");
+			GameRegistry.registerTileEntity(TileRFChargerT4.class,
+					"rfChargerT4");
+			for (String blockName : BlockRegistry.te4Blocks.keySet()) {
+				GameRegistry.registerBlock(
+						BlockRegistry.te4Blocks.get(blockName), blockName);
+			}
 		}
 
 		if (Loader.isModLoaded("Forestry")) {
@@ -221,6 +253,13 @@ public class ExtraPeripheralsMod {
 		LOGGER.info("Peripherals done! Now doing turtle upgrades!");
 		ComputerCraftIntegrationUtil
 				.registerTurtleUpgrade(new RightClickTurtleUpgrade());
+
+		if (Loader.isModLoaded("IC2")) {
+			LOGGER.info("IC2 is loaded! Registering the wrench upgrade.");
+			ComputerCraftIntegrationUtil
+					.registerTurtleUpgrade(new WrenchTurtleUpgrade());
+		}
+
 		LOGGER.info("Sucessfully registered " + EPCreativeTab.upgrades.size()
 				+ " turtle upgrades.");
 		LOGGER.info("Done!");

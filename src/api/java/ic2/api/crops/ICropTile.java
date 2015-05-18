@@ -253,7 +253,7 @@ public interface ICropTile {
 
 	/**
 	 * Check if a block is under the farmland containing the crop.
-	 * Searches up to 2 blocks below the farmland or an air space, whichever appears first.
+	 * Searches up to 2 IncludedBlocks below the farmland or an air space, whichever appears first.
 	 *
 	 * @param block block to search
 	 * @return Whether the block was found

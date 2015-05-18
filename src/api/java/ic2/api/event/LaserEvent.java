@@ -19,7 +19,7 @@ public class LaserEvent extends WorldEvent {
 
 	// the Player firing the Laser. If the Laser gets "reflected" the Player could change.
 	public EntityLivingBase owner;
-	// Range of the Laser Shot. Determine the amount of broken blocks, as well, as each broken block will subtract ~1F from range.
+	// Range of the Laser Shot. Determine the amount of broken IncludedBlocks, as well, as each broken block will subtract ~1F from range.
 	public float range, power;
 	public int blockBreaks;
 	// Determines whether the laser will explode upon hitting something

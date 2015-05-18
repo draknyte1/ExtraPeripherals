@@ -148,7 +148,7 @@ public abstract class CropCard {
 	 * This method will get called by IC2, don't call it yourself.
 	 *
 	 * It's highly recommended to use your own assert domain here, e.g. yourmod:crop/* instead of
-	 * ic2:crop/*, which will then read assets/yourmod/textures/blocks/crop/*.png.
+	 * ic2:crop/*, which will then read assets/yourmod/textures/IncludedBlocks/crop/*.png.
 	 */
 	@SideOnly(Side.CLIENT)
 	public void registerSprites(IIconRegister iconRegister) {

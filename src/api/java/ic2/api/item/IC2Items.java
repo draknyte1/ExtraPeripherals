@@ -3,11 +3,11 @@ package ic2.api.item;
 import net.minecraft.item.ItemStack;
 
 /**
- * Provides access to IC2 blocks and items.
+ * Provides access to IC2 IncludedBlocks and items.
  * 
  * Some items can be acquired through the ore dictionary which is the recommended way.
  * The items are initialized while IC2 is being loaded - try to use ModsLoaded() or load your mod after IC2.
- * Some blocks/items can be disabled by a config setting, so it's recommended to check if they're null first.
+ * Some IncludedBlocks/items can be disabled by a config setting, so it's recommended to check if they're null first.
  * 
  * Getting the associated Block/Item for an ItemStack x:
  *   Blocks: Block.blocksList[x.itemID]
@@ -162,7 +162,7 @@ public final class IC2Items {
 	  miningPipeTip; 		// Mining Pipe Tip block, currently not meta sensitive, meta in ItemStack set to 0
 
 
-	// personal blocks
+	// personal IncludedBlocks
 
 	  personalSafe; 		// Personal Safe block, meta sensitive
 	  tradeOMat; 			// Trade-O-Mat block, meta sensitive

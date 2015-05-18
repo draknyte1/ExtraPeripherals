@@ -18,7 +18,7 @@ public class AlleleManager {
 	 */
 	public static IAlleleRegistry alleleRegistry;
 	/**
-	 * Translates plain leaf blocks into genetic data. Used by bees and butterflies to convert and pollinate foreign leaf blocks.
+	 * Translates plain leaf IncludedBlocks into genetic data. Used by bees and butterflies to convert and pollinate foreign leaf IncludedBlocks.
 	 */
 	public static HashMap<ItemStack, IIndividual> ersatzSpecimen = new HashMap<ItemStack, IIndividual>();
 	/**

@@ -13,7 +13,7 @@ import forestry.api.genetics.IFlowerRegistry;
 
 public class FlowerManager {
 	/**
-	 * ItemStacks representing simple flower blocks. Meta-sensitive, processed by the basic {@link IFlowerProvider}.
+	 * ItemStacks representing simple flower IncludedBlocks. Meta-sensitive, processed by the basic {@link IFlowerProvider}.
 	 * 
 	 * @deprecated since Forestry 3.4. Use {@link #IFlowerRegistry.registerPlantableFlower(ItemStack flower, double weight, String... flowerTypes)} instead.
 	 * <blockquote><pre>e.g. FlowerManager.flowerRegister.registerPlantableFlower(new ItemStack(Blocks.red_flower), 1.0, FlowerManager.FlowerTypeVanilla, FlowerManager.FlowerTypeSnow);</pre></blockquote>

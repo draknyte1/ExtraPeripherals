@@ -15,6 +15,7 @@ item.mouse.name=Mouse
 
 #Turtle adjectives
 extraperipherals.turtleUpgrade.clicky=Clicky
+extraperipherals.turtleUpgrade.wrench=Wrench
 
 #Chat
 extraperipherals.chat.mouse.modeNone=Current Mode: No mode

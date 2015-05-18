@@ -24,7 +24,7 @@ import net.minecraft.tileentity.TileEntity;
  * Any Electric Track needs to implement this interface on either the track
  * TileEntity or ITrackInstance object.
  *
- * Other blocks can also implement this on their tile entity to gain access to
+ * Other IncludedBlocks can also implement this on their tile entity to gain access to
  * the grid.
  *
  * @author CovertJaguar <http://www.railcraft.info/>

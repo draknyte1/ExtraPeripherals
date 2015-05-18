@@ -18,7 +18,7 @@ public class AspectSourceHelper {
 	 * @param tile the tile entity that is draining the essentia
 	 * @param aspect the aspect that you are looking for
 	 * @param direction the direction from which you wish to drain. Forgedirection.Unknown simply seeks in all directions. 
-	 * @param range how many blocks you wish to search for essentia sources. 
+	 * @param range how many IncludedBlocks you wish to search for essentia sources. 
 	 * @return boolean returns true if essentia was found and removed from a source.
 	 */
 	public static boolean drainEssentia(TileEntity tile, Aspect aspect, ForgeDirection direction, int range) {
@@ -40,7 +40,7 @@ public class AspectSourceHelper {
 	 * @param tile the tile entity that is checking the essentia
 	 * @param aspect the aspect that you are looking for
 	 * @param direction the direction from which you wish to drain. Forgedirection.Unknown simply seeks in all directions. 
-	 * @param range how many blocks you wish to search for essentia sources. 
+	 * @param range how many IncludedBlocks you wish to search for essentia sources. 
 	 * @return boolean returns true if essentia was found and removed from a source.
 	 */
 	public static boolean findEssentia(TileEntity tile, Aspect aspect, ForgeDirection direction, int range) {

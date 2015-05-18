@@ -72,7 +72,7 @@ public final class NetworkHelper {
 	 *
 	 * @param te TileEntity to notify, should implement INetworkTileEntityEventListener
 	 * @param event Arbitrary integer to represent the event, choosing the values is up to you
-	 * @param limitRange Limit the notification range to (currently) 20 blocks instead of the
+	 * @param limitRange Limit the notification range to (currently) 20 IncludedBlocks instead of the
 	 *        tracking distance if true
 	 */
 	public static void initiateTileEntityEvent(TileEntity te, int event, boolean limitRange) {
@@ -97,7 +97,7 @@ public final class NetworkHelper {
 	 * @param player EntityPlayer holding the item
 	 * @param itemStack ItemStack containing the item
 	 * @param event Arbitrary integer to represent the event, choosing the values is up to you
-	 * @param limitRange Limit the notification range to (currently) 20 blocks instead of the
+	 * @param limitRange Limit the notification range to (currently) 20 IncludedBlocks instead of the
 	 *        tracking distance if true
 	 */
 	public static void initiateItemEvent(EntityPlayer player, ItemStack itemStack, int event, boolean limitRange) {

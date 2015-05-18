@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 public interface IArchitect {
 
 	/**
-	 * Returns a list of blocks that should be highlighted in world.
+	 * Returns a list of IncludedBlocks that should be highlighted in world.
 	 */
 	public ArrayList<BlockCoordinates> getArchitectBlocks(ItemStack stack, World world, 
 			int x, int y, int z, int side, EntityPlayer player);

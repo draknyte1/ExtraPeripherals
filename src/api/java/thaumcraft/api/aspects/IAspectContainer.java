@@ -5,7 +5,7 @@ package thaumcraft.api.aspects;
  * 
  * @author azanor
  * 
- * Used by blocks like the crucible and alembic to hold their aspects. 
+ * Used by IncludedBlocks like the crucible and alembic to hold their aspects. 
  * Tiles extending this interface will have their aspects show up when viewed by goggles of revealing
  *
  */

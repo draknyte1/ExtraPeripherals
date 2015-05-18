@@ -8,9 +8,9 @@ import net.minecraft.block.Block;
 /**
  * Blocks on this whitelist will not resist an explosion but won't be destroyed.
  * 
- * The explosion code by default ignores blocks which absorb more than 1000 explosion power to
- * prevent abusing personal safes, Trade-O-Mats and other blocks to serve as a cheap and
- * invulnerable reactor chambers. Said blocks will not shield the explosion and won't get
+ * The explosion code by default ignores IncludedBlocks which absorb more than 1000 explosion power to
+ * prevent abusing personal safes, Trade-O-Mats and other IncludedBlocks to serve as a cheap and
+ * invulnerable reactor chambers. Said IncludedBlocks will not shield the explosion and won't get
  * destroyed.
  */
 public final class ExplosionWhitelist {

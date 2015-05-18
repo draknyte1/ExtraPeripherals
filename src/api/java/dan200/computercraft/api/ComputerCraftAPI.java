@@ -104,7 +104,7 @@ public final class ComputerCraftAPI
 	}
 	 
 	/**
-	 * Registers a peripheral handler to convert blocks into IPeripheral implementations.
+	 * Registers a peripheral handler to convert IncludedBlocks into IPeripheral implementations.
 	 * @see dan200.computercraft.api.peripheral.IPeripheral
 	 * @see dan200.computercraft.api.peripheral.IPeripheralProvider
 	 */
@@ -144,7 +144,7 @@ public final class ComputerCraftAPI
     }
 
     /**
-     * Registers a bundled redstone handler to provide bundled redstone output for blocks
+     * Registers a bundled redstone handler to provide bundled redstone output for IncludedBlocks
      * @see dan200.computercraft.api.redstone.IBundledRedstoneProvider
      */
     public static void registerBundledRedstoneProvider( IBundledRedstoneProvider handler )

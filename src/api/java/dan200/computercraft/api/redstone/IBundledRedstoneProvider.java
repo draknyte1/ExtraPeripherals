@@ -9,7 +9,7 @@ package dan200.computercraft.api.redstone;
 import net.minecraft.world.World;
 
 /**
- * This interface is used to provide bundled redstone output for blocks
+ * This interface is used to provide bundled redstone output for IncludedBlocks
  * @see dan200.computercraft.api.ComputerCraftAPI#registerBundledRedstoneProvider(IBundledRedstoneProvider)
  */
 public interface IBundledRedstoneProvider

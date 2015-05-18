@@ -16,10 +16,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import buildcraft.api.core.IInvSlot;
 
 /**
- * A schematic is a piece of a blueprint. It allows to stock blocks or entities
+ * A schematic is a piece of a blueprint. It allows to stock IncludedBlocks or entities
  * to blueprints, and can have a state that moves from a blueprint referential
  * to a world referential. Although default schematic behavior will be OK for a
- * lot of objects, specific blocks and entities may be associated with a
+ * lot of objects, specific IncludedBlocks and entities may be associated with a
  * dedicated schematic class, which will be instantiated automatically.
  *
  * Schematic perform "id translation" in case the block ids between a blueprint
@@ -29,29 +29,29 @@ import buildcraft.api.core.IInvSlot;
  * Detailed documentation on the schematic behavior can be found on
  * http://www.mod-buildcraft.com/wiki/doku.php?id=builder_support
  *
- * Example of schematics for minecraft blocks are available in the package
+ * Example of schematics for minecraft IncludedBlocks are available in the package
  * buildcraft.core.schematics.
  */
 public abstract class Schematic {
 	/**
 	 * Blocks are build in various stages, in order to make sure that a block
-	 * can indeed be placed, and that it's unlikely to disturb other blocks.
+	 * can indeed be placed, and that it's unlikely to disturb other IncludedBlocks.
 	 */
 	public static enum BuildingStage {
 		/**
-		 * Standalone blocks can be placed in the air, and they don't change
+		 * Standalone IncludedBlocks can be placed in the air, and they don't change
 		 * once placed.
 		 */
 		STANDALONE,
 
 		/**
-		 * Supported blocks may require to be placed on a standalone block,
+		 * Supported IncludedBlocks may require to be placed on a standalone block,
 		 * e.g. a torch.
 		 */
 		SUPPORTED,
 
 		/**
-		 * Expanding blocks will grow and may disturb other block locations,
+		 * Expanding IncludedBlocks will grow and may disturb other block locations,
 		 * like e.g. water
 		 */
 		EXPANDING
@@ -132,14 +132,14 @@ public abstract class Schematic {
 	}
 
 	/**
-	 * Translates blocks and item ids to the blueprint referential
+	 * Translates IncludedBlocks and item ids to the blueprint referential
 	 */
 	public void idsToBlueprint(MappingRegistry registry) {
 
 	}
 
 	/**
-	 * Translates blocks and item ids to the world referential
+	 * Translates IncludedBlocks and item ids to the world referential
 	 */
 	public void idsToWorld(MappingRegistry registry) {
 
@@ -147,7 +147,7 @@ public abstract class Schematic {
 
 	/**
 	 * Initializes a schematic for blueprint according to an objet placed on {x,
-	 * y, z} on the world. For blocks, block and meta fields will be initialized
+	 * y, z} on the world. For IncludedBlocks, block and meta fields will be initialized
 	 * automatically.
 	 */
 	public void initializeFromObjectAt(IBuilderContext context, int x, int y, int z) {
@@ -215,7 +215,7 @@ public abstract class Schematic {
 	 * the blueprint at the location given by the slot. By default, this
 	 * subprogram is permissive and doesn't take into account metadata.
 	 *
-	 * Post processing will be called on these blocks.
+	 * Post processing will be called on these IncludedBlocks.
 	 */
 	public boolean isAlreadyBuilt(IBuilderContext context, int x, int y, int z) {
 		return true;
@@ -225,7 +225,7 @@ public abstract class Schematic {
 	 * Return true if the block should not be placed to the world. Requirements
 	 * will not be asked on such a block, and building will not be called.
 	 *
-	 * Post processing will be called on these blocks.
+	 * Post processing will be called on these IncludedBlocks.
 	 */
 	public boolean doNotBuild() {
 		return false;
@@ -237,7 +237,7 @@ public abstract class Schematic {
 	 * an inconsistency is detected. It will be considered as a block of air
 	 * instead.
 	 *
-	 * Post processing will *not* be called on these blocks.
+	 * Post processing will *not* be called on these IncludedBlocks.
 	 */
 	public boolean doNotUse() {
 		return false;
@@ -253,8 +253,8 @@ public abstract class Schematic {
 
 	/**
 	 * Called on a block when the blueprint has finished to place all the
-	 * blocks. This may be useful to adjust variable depending on surrounding
-	 * blocks that may not be there already at initial building.
+	 * IncludedBlocks. This may be useful to adjust variable depending on surrounding
+	 * IncludedBlocks that may not be there already at initial building.
 	 */
 	public void postProcessing(IBuilderContext context, int x, int y, int z) {
 

@@ -27,19 +27,22 @@ public class RecipeRegistry {
 				new ShapedOreRecipe(ItemRegistry.items.get("mouse"), "IRI",
 						"III", "III", 'I', "ingotIron", 'R', "itemRubber"));
 
-		recipes.put(
-				"playerDetector",
-				new ShapedOreRecipe(BlockRegistry.blocks.get("playerDetector"),
-						"GRG", "EDE", "GRG", 'G', "ingotGold", 'R',
-						"dustRedstone", 'E', Items.ender_eye, 'D', "gemDiamond"));
+		recipes.put("playerDetector", new ShapedOreRecipe(
+				BlockRegistry.includedBlocks.get("playerDetector"), "GRG",
+				"EDE", "GRG", 'G', "ingotGold", 'R', "dustRedstone", 'E',
+				Items.ender_eye, 'D', "gemDiamond"));
 
 		if (Loader.isModLoaded("IC2")) {
 			recipes.put(
 					"euCharger",
-					new ShapedOreRecipe(BlockRegistry.blocks.get("euCharger"),
-							"BM ", "R  ", "   ", 'B', GameRegistry.findItem(
-									"IC2", "itemBatREDischarged"), 'M',
-							new ItemStack(GameRegistry.findBlock("IC2",
+					new ShapedOreRecipe(
+							BlockRegistry.ic2Blocks.get("euCharger"),
+							"BM ",
+							"R  ",
+							"   ",
+							'B',
+							GameRegistry.findItem("IC2", "itemBatREDischarged"),
+							'M', new ItemStack(GameRegistry.findBlock("IC2",
 									"blockMachine"), 1, 0), 'R', "dustRedstone"));
 
 		}
@@ -62,19 +65,19 @@ public class RecipeRegistry {
 			ItemStack rsC = new ItemStack(GameRegistry.findItem(
 					"ThermalExpansion", "material"), 1, 3);
 
-			GameRegistry.addRecipe(new ShapedOreRecipe(BlockRegistry.blocks
+			GameRegistry.addRecipe(new ShapedOreRecipe(BlockRegistry.te4Blocks
 					.get("rfChargerLeadstone"), "RLR", "LCL", "RcR", 'R',
 					"dustRedstone", 'L', "ingotLead", 'C', leadStoneCell, 'c',
 					rsC));
-			GameRegistry.addRecipe(new ShapedOreRecipe(BlockRegistry.blocks
+			GameRegistry.addRecipe(new ShapedOreRecipe(BlockRegistry.te4Blocks
 					.get("rfChargerHardened"), "RLR", "LCL", "RcR", 'R',
 					"dustRedstone", 'L', "ingotLead", 'C', hardenedCell, 'c',
 					rsC));
-			GameRegistry.addRecipe(new ShapedOreRecipe(BlockRegistry.blocks
+			GameRegistry.addRecipe(new ShapedOreRecipe(BlockRegistry.te4Blocks
 					.get("rfChargerRedstone"), "RLR", "LCL", "RcR", 'R',
 					"dustRedstone", 'L', "ingotLead", 'C', redstoneCell, 'c',
 					rsC));
-			GameRegistry.addRecipe(new ShapedOreRecipe(BlockRegistry.blocks
+			GameRegistry.addRecipe(new ShapedOreRecipe(BlockRegistry.te4Blocks
 					.get("rfChargerResonant"), "RLR", "LCL", "RcR", 'R',
 					"dustRedstone", 'L', "ingotLead", 'C', resonantCell, 'c',
 					rsC));
@@ -87,15 +90,15 @@ public class RecipeRegistry {
 			ItemStack pppChat = GameRegistry.findItemStack(
 					"PeripheralsPlusPlus", "chatBox", 1);
 			GameRegistry.addRecipe(pppChat, "   ", " C ", "   ", 'C',
-					BlockRegistry.blocks.get("chatBox"));
+					BlockRegistry.includedBlocks.get("chatBox"));
 			GameRegistry.addRecipe(
-					new ItemStack(BlockRegistry.blocks.get("chatBox"), 1, 1),
-					"   ", " C ", "   ", 'C', pppChat);
+					new ItemStack(BlockRegistry.includedBlocks.get("chatBox"),
+							1, 1), "   ", " C ", "   ", 'C', pppChat);
 		} else {
-			recipes.put("chatBox",
-					new ShapedOreRecipe(BlockRegistry.blocks.get("chatBox"),
-							"gng", "ndn", "gng", 'g', "ingotGold", 'n',
-							Blocks.noteblock, 'd', "diamond"));
+			recipes.put("chatBox", new ShapedOreRecipe(
+					BlockRegistry.includedBlocks.get("chatBox"), "gng", "ndn",
+					"gng", 'g', "ingotGold", 'n', Blocks.noteblock, 'd',
+					"diamond"));
 		}
 	}
 

@@ -3,7 +3,7 @@ package ic2.api.tile;
 import net.minecraftforge.common.util.ForgeDirection;
 
 /**
- * Interface implemented by the tile entity of energy storage blocks.
+ * Interface implemented by the tile entity of energy storage IncludedBlocks.
  */
 public interface IEnergyStorage {
 	/**
