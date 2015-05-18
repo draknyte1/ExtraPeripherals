@@ -9,14 +9,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-import net.minecraftforge.event.ServerChatEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 import com.eyeball.minecraft.mods.extraperipherals.util.ChatUtil;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import dan200.computercraft.api.lua.ILuaContext;
 import dan200.computercraft.api.lua.LuaException;
 import dan200.computercraft.api.peripheral.IComputerAccess;
@@ -27,27 +23,6 @@ public class TileChatBox extends TileEPBase implements IPeripheral {
 	public static class ChatList {
 
 		public static HashMap<TileChatBox, Boolean> chatBoxMap = new HashMap<TileChatBox, Boolean>();
-
-		@SubscribeEvent
-		public void onChat(ServerChatEvent event) {
-			for (TileChatBox box : ChatList.chatBoxMap.keySet()) {
-				if (Vec3.createVectorHelper(box.xCoord, box.yCoord, box.zCoord)
-						.distanceTo(event.player.getPosition(1.0f)) <= Integer.MAX_VALUE)
-					box.onChat(event.player, event.message);
-			}
-		}
-	}
-
-	@SubscribeEvent
-	public void onDeath(LivingDeathEvent event) {
-		if (event.entity instanceof EntityPlayer) {
-			for (TileChatBox box : ChatList.chatBoxMap.keySet()) {
-				if (Vec3.createVectorHelper(box.xCoord, box.yCoord, box.zCoord)
-						.distanceTo(
-								((EntityPlayer) event.entity).getPosition(1.0f)) <= Integer.MAX_VALUE)
-					box.onDeath((EntityPlayer) event.entity, event.source);
-			}
-		}
 	}
 
 	World world;
@@ -131,9 +106,11 @@ public class TileChatBox extends TileEPBase implements IPeripheral {
 			String gi = EnumChatFormatting.GRAY + ""
 					+ EnumChatFormatting.ITALIC;
 			String message = gi
-					+ StatCollector.translateToLocal(
-							"extraperipherals.chat.whisperPrefix").replaceFirst(
-							"%s", cbName).replaceFirst("%s", arguments[1].toString());
+					+ StatCollector
+							.translateToLocal(
+									"extraperipherals.chat.whisperPrefix")
+							.replaceFirst("%s", cbName)
+							.replaceFirst("%s", arguments[1].toString());
 			if (!world.isRemote)
 				ChatUtil.sendPrivateMessageToPlayer(world, message,
 						arguments[0].toString());

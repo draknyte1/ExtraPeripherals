@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
@@ -25,11 +26,12 @@ import com.eyeball.minecraft.mods.extraperipherals.block.BlockPlayerDetector;
 import com.eyeball.minecraft.mods.extraperipherals.block.BlockRegistry;
 import com.eyeball.minecraft.mods.extraperipherals.integration.ComputerCraftIntegrationUtil;
 import com.eyeball.minecraft.mods.extraperipherals.integration.forestry.backpacks.ComputerEngineerBackpack;
-import com.eyeball.minecraft.mods.extraperipherals.integration.ic2.energy.TileEntityElectricMachine;
+import com.eyeball.minecraft.mods.extraperipherals.integration.ic2.energy.IC2TileEntityElectricMachine;
 import com.eyeball.minecraft.mods.extraperipherals.integration.waila.WailaCompat;
 import com.eyeball.minecraft.mods.extraperipherals.item.ItemRegistry;
 import com.eyeball.minecraft.mods.extraperipherals.network.packet.ChatMessagePacket;
 import com.eyeball.minecraft.mods.extraperipherals.network.packet.ChatMessagePacket.ChatMessagePacketHandler;
+import com.eyeball.minecraft.mods.extraperipherals.tile.TileChatBox;
 import com.eyeball.minecraft.mods.extraperipherals.tile.TileEUCharger;
 import com.eyeball.minecraft.mods.extraperipherals.tile.rfchargers.TileRFChargerT1;
 import com.eyeball.minecraft.mods.extraperipherals.tile.rfchargers.TileRFChargerT2;
@@ -199,8 +201,8 @@ public class ExtraPeripheralsMod {
 					+ TileEUCharger.class.getName());
 			GameRegistry.registerTileEntity(TileEUCharger.class, "euCharger");
 			LOGGER.info("Registering MachineBlock! Class"
-					+ TileEntityElectricMachine.class.getName());
-			GameRegistry.registerTileEntity(TileEntityElectricMachine.class,
+					+ IC2TileEntityElectricMachine.class.getName());
+			GameRegistry.registerTileEntity(IC2TileEntityElectricMachine.class,
 					"euMachineBase");
 			for (String blockName : BlockRegistry.ic2Blocks.keySet()) {
 				GameRegistry.registerBlock(
@@ -271,6 +273,9 @@ public class ExtraPeripheralsMod {
 						.getTextureMapBlocks());
 			}
 		}
+
+		LOGGER.info("ForgeEventBus");
+		MinecraftForge.EVENT_BUS.register(new TileChatBox.ChatList());
 
 		stopWatch.stop();
 		LOGGER.info("(Initialization ended ->" + stopWatch.getTime() + "ms )");

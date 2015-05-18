@@ -20,18 +20,12 @@ public class TurtleFakePlayer extends EntityPlayer {
 
 	ITurtleAccess turtleAccess;
 
-	World w;
-
-	@SuppressWarnings("unchecked")
 	public TurtleFakePlayer(World world, ITurtleAccess turtle) {
 		super(world, gameProfile);
 		turtleAccess = turtle;
-		world.playerEntities.add(this);
-		w = world;
 	}
 
 	public void done() {
-		w.playerEntities.remove(this);
 	}
 
 	@Override

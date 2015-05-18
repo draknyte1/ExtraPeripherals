@@ -41,13 +41,15 @@ public class BlockPlayerDetector extends BlockEPBase implements
 	}
 
 	@Override
-	public void onBlockClicked(World world, int x, int y, int z,
-			EntityPlayer player) {
+	public boolean onBlockActivated(World world, int x, int y, int z,
+			EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		ExtraPeripheralsMod.LOGGER.info("Clicked!");
 		for (TilePlayerDetector pd : TilePlayerDetector.PlayerDetectorRegistry.playerDetectors
 				.keySet()) {
 			pd.onBlockActivated(player);
 		}
+		return super.onBlockActivated(world, x, y, z, player, side, hitX, hitY,
+				hitZ);
 	}
 
 	@Override
